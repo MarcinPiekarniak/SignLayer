@@ -53,27 +53,6 @@ vec2 rotate_by_angle(vec2 vertex, float angle) {
 void main(void) {
   vec2 iconSize = instanceIconFrames.zw;
 
-  //vec3 world_pos = project_position(instancePositions, instancePositions64xyLow);
-
-  //vec2 pos = positions.xy;
-  //pos.x = pos.x * iconSize.x * 1. / iconSize.y;
-  //pos = rotate_by_angle(pos, instanceAngles);
-
-  //vec2 delta = vec2(iconSize.x * 1. / iconSize.y, 1);
-  //delta = rotate_by_angle(delta, instanceAngles);
-  //delta = project_scale(delta);
-  //delta *= instanceMeters;
-  //delta.y *= -1.0;
-
-  //vec2 pixelOffset = pos * instanceMeters;
-  //pixelOffset.y *= -1.0;
-  //vec2 world_offset = project_scale(pixelOffset);
-
-  //world_pos += vec3(world_offset.xy, 0.);
-  //world_pos += vec3(delta.xy, 0.);
-
-  //gl_Position = project_to_clipspace(vec4(world_pos, 1.0));
-
   if (positions.x == 1. && positions.y == 1.) {
     vec3 vec1 = project_position(instancePositions1, instancePositions64xyLow1);
     gl_Position = project_to_clipspace(vec4(vec1, 1.0));
@@ -90,9 +69,6 @@ void main(void) {
     vec3 vec1 = project_position(instancePositions4, instancePositions64xyLow4);
     gl_Position = project_to_clipspace(vec4(vec1, 1.0));
   }
-
-  //gl_Position += project_pixel_to_clipspace(pixelOffset);
-
 
   vTextureCoords =   //(positions.xy + 1.0) / 2.0;
   mix(
